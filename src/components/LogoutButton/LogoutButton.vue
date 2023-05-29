@@ -24,6 +24,7 @@
 <script setup lang="ts">
 import "./LogoutButton.css";
 import { ref, toRefs } from "vue";
+// @ts-ignore
 import type { LogOutReturnProps } from "othent";
 import {
   LOGOUT_BUTTON_BACKGROUND_COLOR,

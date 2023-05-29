@@ -37,7 +37,8 @@ import {
   LOGO_HEIGHT,
   LOGO_WIDTH,
 } from "@/lib/constants";
-import { LogInReturnProps } from "othent";
+// @ts-ignore
+import type { LogInReturnProps } from "othent";
 import { othentLogin } from "@/lib/utils";
 
 interface Props {
