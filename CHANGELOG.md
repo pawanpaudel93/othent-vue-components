@@ -1,5 +1,12 @@
 
 
+### [0.0.4](https://github.com/pawanpaudel93/othent-vue-components/compare/0.0.3...0.0.4) (2023-05-29)
+
+
+### Bug Fixes
+
+* update package.json ([6f44363](https://github.com/pawanpaudel93/othent-vue-components/commit/6f4436360e42f48ee6dd917c0da33ff727556252))
+
 ### [0.0.3](https://github.com/pawanpaudel93/othent-vue-components/compare/0.0.2...0.0.3) (2023-05-29)
 
 
