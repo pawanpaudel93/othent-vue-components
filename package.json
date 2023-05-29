@@ -3,14 +3,13 @@
   "version": "0.0.4",
   "type": "module",
   "description": "A Othent.io Vue Components Library",
-  "main": "./dist/othent-vue-components.umd.js",
-  "module": "./dist/othent-vue-components.es.js",
+  "main": "./dist/othent-vue-components.umd.cjs",
+  "module": "./dist/othent-vue-components.js",
   "types": "./dist/index.d.ts",
-  "typings": "./dist/index.d.ts",
   "exports": {
     ".": {
-      "import": "./dist/othent-vue-components.es.js",
-      "require": "./dist/othent-vue-components.umd.js"
+      "import": "./dist/othent-vue-components.js",
+      "require": "./dist/othent-vue-components.umd.cjs"
     }
   },
   "files": [
