@@ -15,7 +15,7 @@ export default defineConfig({
     lib: {
       entry: resolve(__dirname, "src/index.ts"),
       name: "OthentVueComponents",
-      fileName: "othent-vue-components",
+      fileName: (format) => `othent-vue-components.${format}.js`,
     },
     rollupOptions: {
       external: ["vue"],
