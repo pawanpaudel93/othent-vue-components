@@ -1,5 +1,12 @@
 
 
+### [0.0.6](https://github.com/pawanpaudel93/othent-vue-components/compare/0.0.5...0.0.6) (2023-05-29)
+
+
+### Bug Fixes
+
+* include types to exports ([ba4cdec](https://github.com/pawanpaudel93/othent-vue-components/commit/ba4cdec32aca9b8714600faa81ddde48776332a3))
+
 ### [0.0.5](https://github.com/pawanpaudel93/othent-vue-components/compare/0.0.4...0.0.5) (2023-05-29)
 
 
