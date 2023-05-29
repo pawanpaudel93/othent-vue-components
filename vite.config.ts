@@ -7,7 +7,13 @@ import cssInjectedByJsPlugin from "vite-plugin-css-injected-by-js";
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [vue(), cssInjectedByJsPlugin(), dts()],
+  plugins: [
+    vue(),
+    cssInjectedByJsPlugin(),
+    dts({
+      insertTypesEntry: true,
+    }),
+  ],
   resolve: {
     alias: {
       "@": resolve(__dirname, "./src"),
