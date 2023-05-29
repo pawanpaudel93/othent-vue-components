@@ -1,0 +1,48 @@
+{
+  "name": "othent-vue-components",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "description": "A Othent.io Vue Components Library",
+  "main": "./dist/othent-vue-components.umd.js",
+  "module": "./dist/othent-vue-components.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/othent-vue-components.esm.js",
+      "require": "./dist/othent-vue-components.js"
+    }
+  },
+  "files": [
+    "dist",
+    "src"
+  ],
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc && vite build",
+    "preview": "vite preview"
+  },
+  "keywords": [
+    "vue",
+    "vue3",
+    "component",
+    "othent"
+  ],
+  "author": "Pawan Paudel",
+  "peerDependencies": {
+    "vue": "^3.2.47"
+  },
+  "dependencies": {
+    "buffer": "^6.0.3",
+    "othent": "^1.0.616"
+  },
+  "devDependencies": {
+    "@types/node": "^20.2.5",
+    "@vitejs/plugin-vue": "^4.1.0",
+    "typescript": "^5.0.2",
+    "vite": "^4.3.2",
+    "vite-plugin-dts": "^2.3.0",
+    "vue-tsc": "^1.4.2",
+    "vue": "^3.2.47"
+  }
+}
