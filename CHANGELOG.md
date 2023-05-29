@@ -1,5 +1,12 @@
 
 
+### [0.0.3](https://github.com/pawanpaudel93/othent-vue-components/compare/0.0.2...0.0.3) (2023-05-29)
+
+
+### Bug Fixes
+
+* include css into the build ([cf627c9](https://github.com/pawanpaudel93/othent-vue-components/commit/cf627c92d32f10b800ae8e1032c9820fab54c6aa))
+
 ### [0.0.2](https://github.com/pawanpaudel93/othent-vue-components/compare/0.0.1...0.0.2) (2023-05-29)
 
 ### 0.0.1 (2023-05-29)
