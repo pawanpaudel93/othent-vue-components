@@ -1,5 +1,12 @@
 
 
+### [0.0.5](https://github.com/pawanpaudel93/othent-vue-components/compare/0.0.4...0.0.5) (2023-05-29)
+
+
+### Bug Fixes
+
+* update package.json & vite config ([9e2c7a1](https://github.com/pawanpaudel93/othent-vue-components/commit/9e2c7a16ac8417c486bdbcf1c2890eceff5d5f47))
+
 ### [0.0.4](https://github.com/pawanpaudel93/othent-vue-components/compare/0.0.3...0.0.4) (2023-05-29)
 
 
