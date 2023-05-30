@@ -1,3 +1,13 @@
+
+
+### [0.0.8](https://github.com/pawanpaudel93/othent-vue-components/compare/0.0.7...0.0.8) (2023-05-30)
+
+
+### Bug Fixes
+
+* rename props name ([cd88e68](https://github.com/pawanpaudel93/othent-vue-components/commit/cd88e68c3e7b72ac8733bdb7629b2f4df9964099))
+* run eslint ([cc77919](https://github.com/pawanpaudel93/othent-vue-components/commit/cc7791991b335d52224220c40f93f12f1c72bd04))
+
 ### [0.0.7](https://github.com/pawanpaudel93/othent-vue-components/compare/0.0.6...0.0.7) (2023-05-30)
 
 ### Bug Fixes
