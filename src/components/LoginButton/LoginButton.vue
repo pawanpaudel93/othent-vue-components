@@ -80,7 +80,7 @@ async function handleLogin() {
   clicked.value = true;
   try {
     const loginResponse = await othentLogin(apiid.value);
-    eventBus.emit("login", loginResponse);
+    eventBus.emit("loggedIn", loginResponse);
   } catch (e) {
     console.log("othent.login() failed:");
     console.log(e);

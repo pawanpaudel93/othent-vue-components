@@ -30,6 +30,6 @@ export async function othentLogout(apiid: string): Promise<LogOutReturnProps> {
 }
 
 export const eventBus = mitt<{
-  login: LogInReturnProps;
-  logout: LogOutReturnProps;
+  loggedIn: LogInReturnProps;
+  loggedOut: LogOutReturnProps;
 }>();

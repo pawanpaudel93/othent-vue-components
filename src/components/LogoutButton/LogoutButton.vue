@@ -65,7 +65,7 @@ async function handleLogout() {
   clicked.value = true;
   try {
     const logoutResponse = await othentLogout(apiid.value);
-    eventBus.emit("logout", logoutResponse);
+    logoutResponse.response && eventBus.emit("loggedOut", logoutResponse);
   } catch (e) {
     console.log("othent.logout() failed:");
     console.log(e);

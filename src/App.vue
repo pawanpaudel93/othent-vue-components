@@ -17,13 +17,13 @@ const handleLogout = (logoutResponse: LogOutReturnProps) => {
 };
 
 onMounted(() => {
-  eventBus.on("login", handleLogin);
-  eventBus.on("logout", handleLogout);
+  eventBus.on("loggedIn", handleLogin);
+  eventBus.on("loggedOut", handleLogout);
 });
 
 onBeforeUnmount(() => {
-  eventBus.off("login", handleLogin);
-  eventBus.off("logout", handleLogout);
+  eventBus.off("loggedIn", handleLogin);
+  eventBus.off("loggedOut", handleLogout);
 });
 </script>
 
