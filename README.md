@@ -34,7 +34,7 @@ To use the components, Import the component in your script and Use the component
 
 ```vue
 <script setup lang="ts">
- import { OthentLogin } from 'othent-vue-components';
+import { OthentLogin } from 'othent-vue-components';
 </script>
 
 <template>
@@ -85,8 +85,8 @@ To handle these events, you can use eventBus as below:
 
 ```vue
 <script setup lang="ts">
-import { OthentLogin, eventBus } from "othent-vue-components";
-import { onBeforeUnmount, onMounted } from "vue";
+import { OthentLogin, eventBus } from 'othent-vue-components';
+import { onBeforeUnmount, onMounted } from 'vue';
 
 const handleLogin = (loginResponse: LogInReturnProps) => {
   console.log(loginResponse);
@@ -99,13 +99,13 @@ const handleLogout = (logoutResponse: LogOutReturnProps) => {
 };
 
 onMounted(() => {
-  eventBus.on("loggedIn", handleLogin);
-  eventBus.on("loggedOut", handleLogout);
+  eventBus.on('loggedIn', handleLogin);
+  eventBus.on('loggedOut', handleLogout);
 });
 
 onBeforeUnmount(() => {
-  eventBus.off("loggedIn", handleLogin);
-  eventBus.off("loggedOut", handleLogout);
+  eventBus.off('loggedIn', handleLogin);
+  eventBus.off('loggedOut', handleLogout);
 });
 </script>
 
@@ -118,78 +118,78 @@ onBeforeUnmount(() => {
 
 ```vue
 <script setup lang="ts">
- import { OthentLogin, eventBus } from 'othent-vue-components';
- import type { LogInReturnProps, LogOutReturnProps } from 'othent';
- import { onBeforeUnmount, onMounted } from "vue";
- const API_ID = 'YOUR_API_ID';
+import { OthentLogin, eventBus } from 'othent-vue-components';
+import type { LogInReturnProps, LogOutReturnProps } from 'othent';
+import { onBeforeUnmount, onMounted } from 'vue';
+const API_ID = 'YOUR_API_ID';
 
- let width = 24;
- let height = 24;
+let width = 24;
+let height = 24;
 
-  const handleLogin = (loginResponse: LogInReturnProps) => {
-    console.log(loginResponse);
-    // Handle loggedIn event
-  };
+const handleLogin = (loginResponse: LogInReturnProps) => {
+  console.log(loginResponse);
+  // Handle loggedIn event
+};
 
-  const handleLogout = (logoutResponse: LogOutReturnProps) => {
-    console.log(logoutResponse);
-    // Handle loggedOut event
-  };
+const handleLogout = (logoutResponse: LogOutReturnProps) => {
+  console.log(logoutResponse);
+  // Handle loggedOut event
+};
 
-  onMounted(() => {
-    eventBus.on("loggedIn", handleLogin);
-    eventBus.on("loggedOut", handleLogout);
-  });
+onMounted(() => {
+  eventBus.on('loggedIn', handleLogin);
+  eventBus.on('loggedOut', handleLogout);
+});
 
-  onBeforeUnmount(() => {
-    eventBus.off("loggedIn", handleLogin);
-    eventBus.off("loggedOut", handleLogout);
-  });
+onBeforeUnmount(() => {
+  eventBus.off('loggedIn', handleLogin);
+  eventBus.off('loggedOut', handleLogout);
+});
 </script>
 
 <template>
   <div class="content">
-  <OthentLogin
-    :apiid="API_ID"
-    loginButtonHeight="25px"
-    loginButtonfontSize="14px"
-    :loginButtonLogoHeight="16"
-    :loginButtonLogoWidth="36"
-    avatarSize="2.5em"
-  >
-    <template v-slot:login-button-logo>
-      <svg
-      slot="login-button-logo"
-      class="othent-logo"
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 48 48"
-      :width="width"
-      :height="height"
-      >
-      <path
-        fill="#FFC107"
-        d="M43.611,20.083H42V20H24v8h11.303c-1.649,4.657-6.08,8-11.303,8c-6.627,0-12-5.373-12-12c0-6.627,5.373-12,12-12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C12.955,4,4,12.955,4,24c0,11.045,8.955,20,20,20c11.045,0,20-8.955,20-20C44,22.659,43.862,21.35,43.611,20.083z"
-      />
-      <path
-        fill="#FF3D00"
-        d="M6.306,14.691l6.571,4.819C14.655,15.108,18.961,12,24,12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C16.318,4,9.656,8.337,6.306,14.691z"
-      />
-      <path
-        fill="#4CAF50"
-        d="M24,44c5.166,0,9.86-1.977,13.409-5.192l-6.19-5.238C29.211,35.091,26.715,36,24,36c-5.202,0-9.619-3.317-11.283-7.946l-6.522,5.025C9.505,39.556,16.227,44,24,44z"
-      />
-      <path
-        fill="#1976D2"
-        d="M43.611,20.083H42V20H24v8h11.303c-0.792,2.237-2.231,4.166-4.087,5.571c0.001-0.001,0.002-0.001,0.003-0.002l6.19,5.238C36.971,39.205,44,34,44,24C44,22.659,43.862,21.35,43.611,20.083z"
-      />
-      </svg>
-    </template>
-  </OthentLogin>
+    <OthentLogin
+      :apiid="API_ID"
+      loginButtonHeight="25px"
+      loginButtonfontSize="14px"
+      :loginButtonLogoHeight="16"
+      :loginButtonLogoWidth="36"
+      avatarSize="2.5em"
+    >
+      <template v-slot:login-button-logo>
+        <svg
+          slot="login-button-logo"
+          class="othent-logo"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 48 48"
+          :width="width"
+          :height="height"
+        >
+          <path
+            fill="#FFC107"
+            d="M43.611,20.083H42V20H24v8h11.303c-1.649,4.657-6.08,8-11.303,8c-6.627,0-12-5.373-12-12c0-6.627,5.373-12,12-12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C12.955,4,4,12.955,4,24c0,11.045,8.955,20,20,20c11.045,0,20-8.955,20-20C44,22.659,43.862,21.35,43.611,20.083z"
+          />
+          <path
+            fill="#FF3D00"
+            d="M6.306,14.691l6.571,4.819C14.655,15.108,18.961,12,24,12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C16.318,4,9.656,8.337,6.306,14.691z"
+          />
+          <path
+            fill="#4CAF50"
+            d="M24,44c5.166,0,9.86-1.977,13.409-5.192l-6.19-5.238C29.211,35.091,26.715,36,24,36c-5.202,0-9.619-3.317-11.283-7.946l-6.522,5.025C9.505,39.556,16.227,44,24,44z"
+          />
+          <path
+            fill="#1976D2"
+            d="M43.611,20.083H42V20H24v8h11.303c-0.792,2.237-2.231,4.166-4.087,5.571c0.001-0.001,0.002-0.001,0.003-0.002l6.19,5.238C36.971,39.205,44,34,44,24C44,22.659,43.862,21.35,43.611,20.083z"
+          />
+        </svg>
+      </template>
+    </OthentLogin>
   </div>
 </template>
 
 <style>
- body {
+body {
   margin: 0;
   padding: 0px 20px;
   background-color: #f3f3f3;
@@ -224,7 +224,7 @@ Import the component in your script and use it:
 
 ```vue
 <script setup lang="ts">
- import { LoginButton, eventBus } from 'othent-vue-components';
+import { LoginButton, eventBus } from 'othent-vue-components';
 </script>
 
 <template>
@@ -265,27 +265,27 @@ The LoginButton component emits the following event:
 
 ```vue
 <script setup lang="ts">
- import { LoginButton, eventBus } from 'othent-vue-components';
-  import type { LogInReturnProps } from 'othent';
- import { onBeforeUnmount, onMounted } from "vue";
+import { LoginButton, eventBus } from 'othent-vue-components';
+import type { LogInReturnProps } from 'othent';
+import { onBeforeUnmount, onMounted } from 'vue';
 
- const handleLogin = (loginResponse: LogInReturnProps) => {
-    console.log(loginResponse);
-    // Handle loggedIn event
-  };
+const handleLogin = (loginResponse: LogInReturnProps) => {
+  console.log(loginResponse);
+  // Handle loggedIn event
+};
 
-  onMounted(() => {
-    eventBus.on("loggedIn", handleLogin);
-  });
+onMounted(() => {
+  eventBus.on('loggedIn', handleLogin);
+});
 
-  onBeforeUnmount(() => {
-    eventBus.off("loggedIn", handleLogin);
-  });
+onBeforeUnmount(() => {
+  eventBus.off('loggedIn', handleLogin);
+});
 </script>
 
 <template>
   <LoginButton apiid="YOUR_API_ID">
-  <span>Login with Othent</span>
+    <span>Login with Othent</span>
   </LoginButton>
 </template>
 ```
@@ -298,7 +298,7 @@ Import the component in your script and use it:
 
 ```vue
 <script setup lang="ts">
- import { LogoutButton } from 'othent-vue-components';
+import { LogoutButton } from 'othent-vue-components';
 </script>
 
 <template>
@@ -336,32 +336,27 @@ The LogoutButton component emits the following event:
 
 ```vue
 <script setup lang="ts">
- import { LogoutButton, eventBus } from 'othent-vue-components';
-  import type { LogOutReturnProps } from 'othent';
-  import { onBeforeUnmount, onMounted } from "vue";
+import { LogoutButton, eventBus } from 'othent-vue-components';
+import type { LogOutReturnProps } from 'othent';
+import { onBeforeUnmount, onMounted } from 'vue';
 
- const handleLogout = (logoutResponse: LogOutReturnProps) => {
-    console.log(logoutResponse);
-    // Handle loggedOut event
-  };
+const handleLogout = (logoutResponse: LogOutReturnProps) => {
+  console.log(logoutResponse);
+  // Handle loggedOut event
+};
 
-  onMounted(() => {
-    eventBus.on("loggedOut", handleLogout);
-  });
+onMounted(() => {
+  eventBus.on('loggedOut', handleLogout);
+});
 
-  onBeforeUnmount(() => {
-    eventBus.off("loggedOut", handleLogout);
-  });
+onBeforeUnmount(() => {
+  eventBus.off('loggedOut', handleLogout);
+});
 </script>
 
 <template>
-  <LogoutButton
-  apiid="YOUR_API_ID"
-  buttonHeight="48px"
-  buttonWidth="180px"
-  fontSize="18px"
-  >
-  <span>Sign Out</span>
+  <LogoutButton apiid="YOUR_API_ID" buttonHeight="48px" buttonWidth="180px" fontSize="18px">
+    <span>Sign Out</span>
   </LogoutButton>
 </template>
 ```
@@ -374,7 +369,7 @@ Import the component in your script and use it:
 
 ```vue
 <script setup lang="ts">
- import { Avatar } from 'othent-vue-components';
+import { Avatar } from 'othent-vue-components';
 </script>
 
 <template>
@@ -394,7 +389,7 @@ The `Avatar` component accepts the following props:
 
 ```vue
 <script setup lang="ts">
- import { Avatar } from 'othent-vue-components';
+import { Avatar } from 'othent-vue-components';
 </script>
 
 <template>
@@ -410,7 +405,7 @@ Import the component in your script and use it:
 
 ```vue
 <script setup lang="ts">
- import { UserInfo } from 'othent-vue-components';
+import { UserInfo } from 'othent-vue-components';
 </script>
 
 <template>
@@ -432,13 +427,13 @@ The UserInfo component accepts the following props:
 
 ```vue
 <script setup lang="ts">
- import { UserInfo } from 'othent-vue-components';
+import { UserInfo } from 'othent-vue-components';
 
- const userData = {
+const userData = {
   name: 'John Doe',
   email: 'johndoe@example.com',
   picture: 'path/to/avatar.jpg'
- };
+};
 </script>
 
 <template>
@@ -454,13 +449,13 @@ Import the component in your script and use it:
 
 ```vue
 <script setup lang="ts">
- import { Modal } from 'othent-vue-components';
+import { Modal } from 'othent-vue-components';
 </script>
 
 <template>
   <Modal location="bottom-right" avatarSize="40px">
-  <template #avatar>Avatar Content</template>
-  <template #default>Modal Content</template>
+    <template #avatar>Avatar Content</template>
+    <template #default>Modal Content</template>
   </Modal>
 </template>
 ```
@@ -493,13 +488,13 @@ The Modal component supports the following slots:
 
 ```vue
 <script setup lang="ts">
- import { Modal, ModalLocation } from 'othent-vue-components';
+import { Modal, ModalLocation } from 'othent-vue-components';
 </script>
 
 <template>
   <Modal :location="ModalLocation.bottom" avatarSize="40px">
-  <template #avatar>PP</template>
-  <template #default>Modal Content</template>
+    <template #avatar>PP</template>
+    <template #default>Modal Content</template>
   </Modal>
 </template>
 ```

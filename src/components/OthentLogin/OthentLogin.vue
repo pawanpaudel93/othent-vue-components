@@ -11,10 +11,7 @@
       >
         <template v-slot:logo>
           <slot name="login-button-logo">
-            <Logo
-              :height="loginButtonLogoHeight"
-              :width="loginButtonLogoWidth"
-            />
+            <Logo :height="loginButtonLogoHeight" :width="loginButtonLogoWidth" />
           </slot>
         </template>
         <template v-slot:default>
@@ -28,11 +25,7 @@
       <Modal :location="location" :avatarSize="avatarSize">
         <template v-slot:avatar>
           <slot>
-            <Avatar
-              :username="userData.name"
-              :src="userData.picture"
-              :size="avatarSize"
-            />
+            <Avatar :username="userData.name" :src="userData.picture" :size="avatarSize" />
           </slot>
         </template>
         <div class="othent-login othent-login-modal-children">
@@ -56,17 +49,17 @@
 </template>
 
 <script setup lang="ts">
-import "./OthentLogin.css";
-import { toRefs, toRef } from "vue";
-import LoginButtonText from "../Extras/LoginButtonText.vue";
-import { ModalLocation } from "@/lib/types";
-import { useStore } from "@/lib/store";
-import Avatar from "../Avatar";
-import LoginButton from "../LoginButton";
-import LogoutButton from "../LogoutButton";
-import UserInfo from "../UserInfo";
-import Modal from "../Modal";
-import Logo from "../Logo";
+import './OthentLogin.css';
+import { toRefs, toRef } from 'vue';
+import LoginButtonText from '../Extras/LoginButtonText.vue';
+import { ModalLocation } from '@/lib/types';
+import { useStore } from '@/lib/store';
+import Avatar from '../Avatar';
+import LoginButton from '../LoginButton';
+import LogoutButton from '../LogoutButton';
+import UserInfo from '../UserInfo';
+import Modal from '../Modal';
+import Logo from '../Logo';
 import {
   LOGIN_BUTTON_HEIGHT,
   LOGIN_BUTTON_WIDTH,
@@ -81,8 +74,8 @@ import {
   LOGOUT_BUTTON_BACKGROUND_COLOR,
   LOGIN_BUTTON_BACKGROUND_COLOR,
   LOGOUT_BUTTON_COLOR,
-  LOGIN_BUTTON_COLOR,
-} from "@/lib/constants";
+  LOGIN_BUTTON_COLOR
+} from '@/lib/constants';
 
 interface Props {
   location?: ModalLocation;
@@ -118,7 +111,7 @@ const props = withDefaults(defineProps<Props>(), {
   logoutButtonWidth: LOGOUT_BUTTON_WIDTH,
   logoutButtonfontSize: LOGOUT_BUTTON_FONT_SIZE,
   logoutButtonBackgroundColor: LOGOUT_BUTTON_BACKGROUND_COLOR,
-  logoutButtonColor: LOGOUT_BUTTON_COLOR,
+  logoutButtonColor: LOGOUT_BUTTON_COLOR
 });
 
 const {
@@ -137,8 +130,8 @@ const {
   logoutButtonColor,
   logoutButtonHeight,
   logoutButtonWidth,
-  logoutButtonfontSize,
+  logoutButtonfontSize
 } = toRefs(props);
 
-const userData = toRef(useStore(), "userData");
+const userData = toRef(useStore(), 'userData');
 </script>

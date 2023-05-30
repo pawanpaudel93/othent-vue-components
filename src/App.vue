@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import { LogInReturnProps, LogOutReturnProps } from "othent";
-import { OthentLogin, eventBus } from ".";
-import Logo from "@/components/Logo";
-import { onBeforeUnmount, onMounted } from "vue";
+import { LogInReturnProps, LogOutReturnProps } from 'othent';
+import { OthentLogin, eventBus } from '.';
+import Logo from '@/components/Logo';
+import { onBeforeUnmount, onMounted } from 'vue';
 const API_ID = import.meta.env.VITE_OTHENT_API_ID;
 
 const width = 24;
@@ -17,13 +17,13 @@ const handleLogout = (logoutResponse: LogOutReturnProps) => {
 };
 
 onMounted(() => {
-  eventBus.on("loggedIn", handleLogin);
-  eventBus.on("loggedOut", handleLogout);
+  eventBus.on('loggedIn', handleLogin);
+  eventBus.on('loggedOut', handleLogout);
 });
 
 onBeforeUnmount(() => {
-  eventBus.off("loggedIn", handleLogin);
-  eventBus.off("loggedOut", handleLogout);
+  eventBus.off('loggedIn', handleLogin);
+  eventBus.off('loggedOut', handleLogout);
 });
 </script>
 
@@ -36,13 +36,7 @@ onBeforeUnmount(() => {
       <Logo :width="88" :height="48" />
     </a>
     <a href="https://vuejs.org/" target="_blank">
-      <svg
-        class="logo"
-        viewBox="0 0 128 128"
-        width="96"
-        height="96"
-        data-v-53ccc107=""
-      >
+      <svg class="logo" viewBox="0 0 128 128" width="96" height="96" data-v-53ccc107="">
         <path
           fill="#42b883"
           d="M78.8,10L64,35.4L49.2,10H0l64,110l64-110C128,10,78.8,10,78.8,10z"
@@ -59,8 +53,6 @@ onBeforeUnmount(() => {
   <div class="container">
     <OthentLogin
       :apiid="API_ID"
-      @login="handleLogin"
-      @logout="handleLogout"
       loginButtonHeight="25px"
       loginButtonfontSize="14px"
       :loginButtonLogoHeight="16"

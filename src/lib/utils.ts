@@ -2,10 +2,10 @@ import {
   Othent,
   type LogInReturnProps,
   type useOthentReturnProps,
-  type LogOutReturnProps,
-} from "othent";
-import mitt from "mitt";
-import { setUserData } from "@/lib/store";
+  type LogOutReturnProps
+} from 'othent';
+import mitt from 'mitt';
+import { setUserData } from '@/lib/store';
 
 let othent: useOthentReturnProps | undefined;
 

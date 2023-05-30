@@ -18,9 +18,9 @@
 </template>
 
 <script setup lang="ts">
-import "./Avatar.css";
-import { ref, toRefs } from "vue";
-import { AVATAR_SIZE } from "@/lib/constants";
+import './Avatar.css';
+import { ref, toRefs } from 'vue';
+import { AVATAR_SIZE } from '@/lib/constants';
 
 interface Props {
   username?: string;
@@ -29,9 +29,9 @@ interface Props {
 }
 
 const props = withDefaults(defineProps<Props>(), {
-  username: "",
-  src: "",
-  size: AVATAR_SIZE,
+  username: '',
+  src: '',
+  size: AVATAR_SIZE
 });
 
 const { username, src, size } = toRefs(props);

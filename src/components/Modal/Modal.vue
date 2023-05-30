@@ -7,10 +7,7 @@
   >
     <slot name="avatar">Show Modal</slot>
     <template v-if="showModal">
-      <div
-        class="othent-modal-children"
-        :class="`othent-modal-children-${LOCATIONS[location]}`"
-      >
+      <div class="othent-modal-children" :class="`othent-modal-children-${LOCATIONS[location]}`">
         <slot>Modal Content</slot>
       </div>
     </template>
@@ -18,20 +15,20 @@
 </template>
 
 <script setup lang="ts">
-import "./Modal.css";
-import { onMounted, ref, toRefs } from "vue";
-import { ModalLocation } from "@/lib/types";
-import { AVATAR_SIZE } from "@/lib/constants";
+import './Modal.css';
+import { onMounted, ref, toRefs } from 'vue';
+import { ModalLocation } from '@/lib/types';
+import { AVATAR_SIZE } from '@/lib/constants';
 
 const LOCATIONS = [
-  "top",
-  "right",
-  "bottom",
-  "left",
-  "top-right",
-  "top-left",
-  "bottom-right",
-  "bottom-left",
+  'top',
+  'right',
+  'bottom',
+  'left',
+  'top-right',
+  'top-left',
+  'bottom-right',
+  'bottom-left'
 ];
 
 interface Props {
@@ -40,8 +37,8 @@ interface Props {
 }
 
 const props = withDefaults(defineProps<Props>(), {
-  location: ModalLocation["bottom-left"],
-  avatarSize: AVATAR_SIZE,
+  location: ModalLocation['bottom-left'],
+  avatarSize: AVATAR_SIZE
 });
 
 const { location, avatarSize } = toRefs(props);
@@ -55,9 +52,9 @@ onMounted(() => {
       setShowModal(false);
     }
   };
-  window.addEventListener("mousedown", handleClickOutside);
+  window.addEventListener('mousedown', handleClickOutside);
   return () => {
-    window.removeEventListener("mousedown", handleClickOutside);
+    window.removeEventListener('mousedown', handleClickOutside);
   };
 });
 

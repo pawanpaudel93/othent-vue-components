@@ -1,9 +1,9 @@
-@import url("../LoginButton/LoginButton.css");
+@import url('../LoginButton/LoginButton.css');
 
 .othent-modal {
   /* Copied from loginbutton */
   appearance: none;
-  font-family: "DM Sans", sans-serif;
+  font-family: 'DM Sans', sans-serif;
   font-size: medium;
   display: flex;
   align-items: center;

@@ -9,7 +9,7 @@
       height: buttonHeight,
       fontSize: fontSize,
       backgroundColor: backgroundColor,
-      color: color,
+      color: color
     }"
   >
     <slot name="logo">
@@ -25,11 +25,11 @@
 </template>
 
 <script setup lang="ts">
-import { ref, toRefs } from "vue";
-import "./LoginButton.css";
-import Logo from "../Logo";
-import { eventBus } from "@/lib/utils";
-import LoginButtonText from "../Extras/LoginButtonText.vue";
+import { ref, toRefs } from 'vue';
+import './LoginButton.css';
+import Logo from '../Logo';
+import { eventBus } from '@/lib/utils';
+import LoginButtonText from '../Extras/LoginButtonText.vue';
 import {
   LOGIN_BUTTON_BACKGROUND_COLOR,
   LOGIN_BUTTON_COLOR,
@@ -37,11 +37,11 @@ import {
   LOGIN_BUTTON_HEIGHT,
   LOGIN_BUTTON_WIDTH,
   LOGO_HEIGHT,
-  LOGO_WIDTH,
-} from "@/lib/constants";
+  LOGO_WIDTH
+} from '@/lib/constants';
 // @ts-ignore
-import type { LogInReturnProps } from "othent";
-import { othentLogin } from "@/lib/utils";
+import type { LogInReturnProps } from 'othent';
+import { othentLogin } from '@/lib/utils';
 
 interface Props {
   apiid: string;
@@ -61,7 +61,7 @@ const props = withDefaults(defineProps<Props>(), {
   logoHeight: LOGO_HEIGHT,
   logoWidth: LOGO_WIDTH,
   backgroundColor: LOGIN_BUTTON_BACKGROUND_COLOR,
-  color: LOGIN_BUTTON_COLOR,
+  color: LOGIN_BUTTON_COLOR
 });
 
 const {
@@ -72,7 +72,7 @@ const {
   logoHeight,
   logoWidth,
   backgroundColor,
-  color,
+  color
 } = toRefs(props);
 const clicked = ref(false);
 
@@ -80,9 +80,9 @@ async function handleLogin() {
   clicked.value = true;
   try {
     const loginResponse = await othentLogin(apiid.value);
-    eventBus.emit("loggedIn", loginResponse);
+    eventBus.emit('loggedIn', loginResponse);
   } catch (e) {
-    console.log("othent.login() failed:");
+    console.log('othent.login() failed:');
     console.log(e);
   } finally {
     clicked.value = false;

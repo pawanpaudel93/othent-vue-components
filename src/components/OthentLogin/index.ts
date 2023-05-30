@@ -1,1 +1,1 @@
-export { default } from "./OthentLogin.vue";
+export { default } from './OthentLogin.vue';

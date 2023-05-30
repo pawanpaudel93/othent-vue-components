@@ -1,1 +1,1 @@
-export { default } from "./UserInfo.vue";
+export { default } from './UserInfo.vue';

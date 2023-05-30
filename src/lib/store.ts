@@ -1,8 +1,8 @@
 // store.ts
-import { LogInReturnProps } from "othent";
-import { reactive, watch } from "vue";
+import { LogInReturnProps } from 'othent';
+import { reactive, watch } from 'vue';
 
-const userDataKey = "othent:userData";
+const userDataKey = 'othent:userData';
 
 // Define the initial state of the store
 interface State {
@@ -11,7 +11,7 @@ interface State {
 
 // Create a reactive state object
 const state: State = reactive({
-  userData: JSON.parse(localStorage.getItem(userDataKey) || "null"),
+  userData: JSON.parse(localStorage.getItem(userDataKey) || 'null')
 });
 
 // Watch for changes to the value and update LocalStorage
