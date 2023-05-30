@@ -5,7 +5,7 @@
         :apiid="apiid"
         :button-height="loginButtonHeight"
         :button-width="loginButtonWidth"
-        :font-size="loginButtonfontSize"
+        :font-size="loginButtonFontSize"
         :background-color="loginButtonBackgroundColor"
         :color="loginButtonColor"
       >
@@ -35,7 +35,7 @@
               :apiid="apiid"
               :button-height="logoutButtonHeight"
               :button-width="logoutButtonWidth"
-              :font-size="logoutButtonfontSize"
+              :font-size="logoutButtonFontSize"
               :background-color="logoutButtonBackgroundColor"
               :color="logoutButtonColor"
             >
@@ -84,14 +84,14 @@ interface Props {
   userInfoAvatarSize?: string;
   loginButtonHeight?: string;
   loginButtonWidth?: string;
-  loginButtonfontSize?: string;
+  loginButtonFontSize?: string;
   loginButtonLogoHeight?: number;
   loginButtonLogoWidth?: number;
   loginButtonColor?: string;
   loginButtonBackgroundColor?: string;
   logoutButtonHeight?: string;
   logoutButtonWidth?: string;
-  logoutButtonfontSize?: string;
+  logoutButtonFontSize?: string;
   logoutButtonBackgroundColor?: string;
   logoutButtonColor?: string;
 }
@@ -102,14 +102,14 @@ const props = withDefaults(defineProps<Props>(), {
   userInfoAvatarSize: USER_INFO_AVATAR_SIZE,
   loginButtonHeight: LOGIN_BUTTON_HEIGHT,
   loginButtonWidth: LOGIN_BUTTON_WIDTH,
-  loginButtonfontSize: LOGIN_BUTTON_FONT_SIZE,
+  loginButtonFontSize: LOGIN_BUTTON_FONT_SIZE,
   loginButtonLogoHeight: LOGO_HEIGHT,
   loginButtonLogoWidth: LOGO_WIDTH,
   loginButtonColor: LOGIN_BUTTON_COLOR,
   loginButtonBackgroundColor: LOGIN_BUTTON_BACKGROUND_COLOR,
   logoutButtonHeight: LOGOUT_BUTTON_HEIGHT,
   logoutButtonWidth: LOGOUT_BUTTON_WIDTH,
-  logoutButtonfontSize: LOGOUT_BUTTON_FONT_SIZE,
+  logoutButtonFontSize: LOGOUT_BUTTON_FONT_SIZE,
   logoutButtonBackgroundColor: LOGOUT_BUTTON_BACKGROUND_COLOR,
   logoutButtonColor: LOGOUT_BUTTON_COLOR
 });
@@ -121,7 +121,7 @@ const {
   userInfoAvatarSize,
   loginButtonHeight,
   loginButtonWidth,
-  loginButtonfontSize,
+  loginButtonFontSize,
   loginButtonBackgroundColor,
   loginButtonColor,
   loginButtonLogoHeight,
@@ -130,7 +130,7 @@ const {
   logoutButtonColor,
   logoutButtonHeight,
   logoutButtonWidth,
-  logoutButtonfontSize
+  logoutButtonFontSize
 } = toRefs(props);
 
 const userData = toRef(useStore(), 'userData');
