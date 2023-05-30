@@ -19,7 +19,8 @@
   ],
   "scripts": {
     "dev": "vite",
-    "build": "vue-tsc && vite build",
+    "build": "vue-tsc && vite build --config vite.dev.config.ts",
+    "package": "vue-tsc && vite build",
     "preview": "vite preview",
     "release": "release-it"
   },

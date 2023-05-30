@@ -2,7 +2,7 @@
   <button
     class="othent-button-logout"
     :disabled="clicked"
-    @click="logout"
+    @click="handleLogout"
     :style="{
       width: buttonWidth,
       height: buttonHeight,
@@ -15,7 +15,7 @@
     @mouseout="isHovered = false"
   >
     <template v-if="$slots.default">
-      <slot />
+      <slot></slot>
     </template>
     <template v-else> Log Out </template>
   </button>
@@ -60,11 +60,10 @@ const isHovered = ref(false);
 const clicked = ref(false);
 
 const emit = defineEmits<{
-  (e: "logout", loginResponse: LogOutReturnProps): void;
+  (e: "logout", logoutResponse: LogOutReturnProps): void;
 }>();
 
-async function logout(e: Event) {
-  e.preventDefault();
+async function handleLogout() {
   clicked.value = true;
   try {
     const logoutResponse = await othentLogout(apiid.value);

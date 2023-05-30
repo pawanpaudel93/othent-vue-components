@@ -2,7 +2,8 @@
   <button
     class="othent-button-login"
     :disabled="clicked"
-    @click="login"
+    @click="handleLogin"
+    v-bind="$attrs"
     :style="{
       width: buttonWidth,
       height: buttonHeight,
@@ -15,7 +16,7 @@
       <Logo :height="logoHeight" :width="logoWidth" />
     </slot>
     <template v-if="$slots.default">
-      <slot />
+      <slot></slot>
     </template>
     <template v-else>
       <LoginButtonText />
@@ -78,8 +79,7 @@ const emit = defineEmits<{
   (e: "login", loginResponse: LogInReturnProps): void;
 }>();
 
-async function login(e: Event) {
-  e.preventDefault();
+async function handleLogin() {
   clicked.value = true;
   try {
     const loginResponse = await othentLogin(apiid.value);
