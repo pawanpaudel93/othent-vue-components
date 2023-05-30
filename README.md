@@ -55,14 +55,14 @@ Optional Props:
 - `userInfoAvatarSize` (default: "3em"): The size of the avatar displayed in the user info section.
 - `loginButtonHeight` (default: "3em"): The height of the login button.
 - `loginButtonWidth` (default: "fit-content"): The width of the login button.
-- `loginButtonfontSize` (default: "medium"): The font size of the login button text.
+- `loginButtonFontSize` (default: "medium"): The font size of the login button text.
 - `loginButtonLogoHeight` (default: 24): The height of the logo displayed on the login button.
 - `loginButtonColor` (default: black): The text color of the login button.
 - `loginButtonBackgroundColor` (default: #fff): The background color of the login button.
 - `loginButtonLogoWidth` (default: 44): The width of the logo displayed on the login button.
 - `logoutButtonHeight` (default: "100%"): The height of the logout button.
 - `logoutButtonWidth` (default: "100%"): The width of the logout button.
-- `logoutButtonfontSize` (default: "normal"): The font size of the logout button text.
+- `logoutButtonFontSize` (default: "normal"): The font size of the logout button text.
 - `logoutButtonColor` (default: "#f44336"): The text color of the logout button.
 - `logoutButtonBackgroundColor` (default: #fff): The background color of the logout button.
 
@@ -152,11 +152,11 @@ onBeforeUnmount(() => {
   <div class="content">
     <OthentLogin
       :apiid="API_ID"
-      loginButtonHeight="25px"
-      loginButtonfontSize="14px"
-      :loginButtonLogoHeight="16"
-      :loginButtonLogoWidth="36"
-      avatarSize="2.5em"
+      login-button-height="25px"
+      login-button-font-size="14px"
+      :login-button-logo-height="16"
+      :login-button-logo-width="36"
+      avatar-size="2.5em"
     >
       <template v-slot:login-button-logo>
         <svg
@@ -356,7 +356,7 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-  <LogoutButton apiid="YOUR_API_ID" buttonHeight="48px" buttonWidth="180px" fontSize="18px">
+  <LogoutButton apiid="YOUR_API_ID" button-height="48px" button-width="180px" font-size="18px">
     <span>Sign Out</span>
   </LogoutButton>
 </template>
@@ -410,7 +410,7 @@ import { UserInfo } from 'othent-vue-components';
 </script>
 
 <template>
-  <UserInfo :userdata="userData" avatarSize="80px" />
+  <UserInfo :userdata="userData" avatar-size="80px" />
 </template>
 ```
 
@@ -438,7 +438,7 @@ const userData = {
 </script>
 
 <template>
-  <UserInfo :userdata="userData" avatarSize="80px" />
+  <UserInfo :userdata="userData" avatar-size="80px" />
 </template>
 ```
 
@@ -454,7 +454,7 @@ import { Modal } from 'othent-vue-components';
 </script>
 
 <template>
-  <Modal location="bottom-right" avatarSize="40px">
+  <Modal location="bottom-right" avatar-size="40px">
     <template #avatar>Avatar Content</template>
     <template #default>Modal Content</template>
   </Modal>
@@ -493,7 +493,7 @@ import { Modal, ModalLocation } from 'othent-vue-components';
 </script>
 
 <template>
-  <Modal :location="ModalLocation.bottom" avatarSize="40px">
+  <Modal :location="ModalLocation.bottom" avatar-size="40px">
     <template #avatar>PP</template>
     <template #default>Modal Content</template>
   </Modal>

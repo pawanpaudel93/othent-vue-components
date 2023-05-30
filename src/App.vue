@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { LogInReturnProps, LogOutReturnProps } from 'othent';
 import { OthentLogin, eventBus } from '.';
-import Logo from '@/components/Logo';
 import { onBeforeUnmount, onMounted } from 'vue';
 const API_ID = import.meta.env.VITE_OTHENT_API_ID;
 
@@ -31,9 +30,6 @@ onBeforeUnmount(() => {
   <div>
     <a href="https://vitejs.dev" target="_blank">
       <img src="https://vitejs.dev/logo.svg" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://othent.io/" target="_blank" style="vertical-align: top">
-      <Logo :width="88" :height="48" />
     </a>
     <a href="https://vuejs.org/" target="_blank">
       <svg class="logo" viewBox="0 0 128 128" width="96" height="96" data-v-53ccc107="">
