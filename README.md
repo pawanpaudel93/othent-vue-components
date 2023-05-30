@@ -86,6 +86,7 @@ To handle these events, you can use eventBus as below:
 ```vue
 <script setup lang="ts">
 import { OthentLogin, eventBus } from 'othent-vue-components';
+import { LogInReturnProps, LogOutReturnProps } from 'othent';
 import { onBeforeUnmount, onMounted } from 'vue';
 
 const handleLogin = (loginResponse: LogInReturnProps) => {
