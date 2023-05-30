@@ -2,7 +2,7 @@
   <button
     class="othent-button-login"
     :disabled="clicked"
-    @click="handleLogin"
+    @click.prevent="handleLogin"
     v-bind="$attrs"
     :style="{
       width: buttonWidth,
@@ -28,6 +28,7 @@
 import { ref, toRefs } from "vue";
 import "./LoginButton.css";
 import Logo from "../Logo";
+import { eventBus } from "@/lib/utils";
 import LoginButtonText from "../Extras/LoginButtonText.vue";
 import {
   LOGIN_BUTTON_BACKGROUND_COLOR,
@@ -75,15 +76,11 @@ const {
 } = toRefs(props);
 const clicked = ref(false);
 
-const emit = defineEmits<{
-  (e: "login", loginResponse: LogInReturnProps): void;
-}>();
-
 async function handleLogin() {
   clicked.value = true;
   try {
     const loginResponse = await othentLogin(apiid.value);
-    emit("login", loginResponse);
+    eventBus.emit("login", loginResponse);
   } catch (e) {
     console.log("othent.login() failed:");
     console.log(e);

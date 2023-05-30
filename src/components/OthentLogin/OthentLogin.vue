@@ -2,7 +2,6 @@
   <div class="othent-login">
     <template v-if="userData === null">
       <LoginButton
-        @login="onLogin"
         :apiid="apiid"
         :buttonHeight="loginButtonHeight"
         :buttonWidth="loginButtonWidth"
@@ -40,7 +39,6 @@
           <UserInfo :userdata="userData" :avatarSize="userInfoAvatarSize" />
           <div class="text-center">
             <LogoutButton
-              @logout="onLogout"
               :apiid="apiid"
               :buttonHeight="logoutButtonHeight"
               :buttonWidth="logoutButtonWidth"
@@ -85,8 +83,6 @@ import {
   LOGOUT_BUTTON_COLOR,
   LOGIN_BUTTON_COLOR,
 } from "@/lib/constants";
-
-import type { LogInReturnProps, LogOutReturnProps } from "othent";
 
 interface Props {
   location?: ModalLocation;
@@ -145,17 +141,4 @@ const {
 } = toRefs(props);
 
 const userData = toRef(useStore(), "userData");
-
-const emit = defineEmits<{
-  (e: "login", loginResponse: LogInReturnProps): void;
-  (e: "logout", logoutResponse: LogOutReturnProps): void;
-}>();
-
-function onLogin(loginResponse: LogInReturnProps) {
-  emit("login", loginResponse);
-}
-
-function onLogout(logoutResponse: LogOutReturnProps) {
-  emit("logout", logoutResponse);
-}
 </script>

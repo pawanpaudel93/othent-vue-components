@@ -4,6 +4,7 @@ import {
   type useOthentReturnProps,
   type LogOutReturnProps,
 } from "othent";
+import mitt from "mitt";
 import { setUserData } from "@/lib/store";
 
 let othent: useOthentReturnProps | undefined;
@@ -27,3 +28,8 @@ export async function othentLogout(apiid: string): Promise<LogOutReturnProps> {
   logoutResponse.response && setUserData(null);
   return logoutResponse;
 }
+
+export const eventBus = mitt<{
+  login: LogInReturnProps;
+  logout: LogOutReturnProps;
+}>();

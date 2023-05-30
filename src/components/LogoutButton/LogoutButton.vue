@@ -2,7 +2,8 @@
   <button
     class="othent-button-logout"
     :disabled="clicked"
-    @click="handleLogout"
+    @click.prevent="handleLogout"
+    v-bind="$attrs"
     :style="{
       width: buttonWidth,
       height: buttonHeight,
@@ -24,6 +25,7 @@
 <script setup lang="ts">
 import "./LogoutButton.css";
 import { ref, toRefs } from "vue";
+import { eventBus } from "@/lib/utils";
 // @ts-ignore
 import type { LogOutReturnProps } from "othent";
 import {
@@ -59,15 +61,11 @@ const hoverColor = ref(`${color.value}11`);
 const isHovered = ref(false);
 const clicked = ref(false);
 
-const emit = defineEmits<{
-  (e: "logout", logoutResponse: LogOutReturnProps): void;
-}>();
-
 async function handleLogout() {
   clicked.value = true;
   try {
     const logoutResponse = await othentLogout(apiid.value);
-    emit("logout", logoutResponse);
+    eventBus.emit("logout", logoutResponse);
   } catch (e) {
     console.log("othent.logout() failed:");
     console.log(e);
