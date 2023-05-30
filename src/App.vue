@@ -53,14 +53,14 @@ onBeforeUnmount(() => {
   <div class="container">
     <OthentLogin
       :apiid="API_ID"
-      loginButtonHeight="25px"
-      loginButtonfontSize="14px"
-      :loginButtonLogoHeight="16"
-      :loginButtonLogoWidth="36"
-      avatarSize="2.5em"
-      logoutButtonColor="#00a3c4"
+      login-button-height="25px"
+      login-buttonfont-size="14px"
+      :login-button-logo-height="16"
+      :login-button-logo-width="36"
+      avatar-size="2.5em"
+      logout-button-color="#00a3c4"
     >
-      <template v-slot:login-button-logo>
+      <template #login-button-logo>
         <svg
           class="othent-logo"
           xmlns="http://www.w3.org/2000/svg"

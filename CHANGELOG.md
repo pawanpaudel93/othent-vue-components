@@ -1,12 +1,9 @@
-
-
 ### [0.0.7](https://github.com/pawanpaudel93/othent-vue-components/compare/0.0.6...0.0.7) (2023-05-30)
-
 
 ### Bug Fixes
 
-* add event bus event handeling ([8f23b56](https://github.com/pawanpaudel93/othent-vue-components/commit/8f23b56441506a4baf8f4e003ac232e6b5601d05))
-* update event names ([28a284d](https://github.com/pawanpaudel93/othent-vue-components/commit/28a284dfdc5c6f49fa807052ba06406ee86c11bb))
+- add event bus event handeling ([8f23b56](https://github.com/pawanpaudel93/othent-vue-components/commit/8f23b56441506a4baf8f4e003ac232e6b5601d05))
+- update event names ([28a284d](https://github.com/pawanpaudel93/othent-vue-components/commit/28a284dfdc5c6f49fa807052ba06406ee86c11bb))
 
 ### [0.0.6](https://github.com/pawanpaudel93/othent-vue-components/compare/0.0.5...0.0.6) (2023-05-29)
 

@@ -2,7 +2,6 @@
   <button
     class="othent-button-login"
     :disabled="clicked"
-    @click.prevent="handleLogin"
     v-bind="$attrs"
     :style="{
       width: buttonWidth,
@@ -11,6 +10,7 @@
       backgroundColor: backgroundColor,
       color: color
     }"
+    @click.prevent="handleLogin"
   >
     <slot name="logo">
       <Logo :height="logoHeight" :width="logoWidth" />
@@ -39,8 +39,6 @@ import {
   LOGO_HEIGHT,
   LOGO_WIDTH
 } from '@/lib/constants';
-// @ts-ignore
-import type { LogInReturnProps } from 'othent';
 import { othentLogin } from '@/lib/utils';
 
 interface Props {

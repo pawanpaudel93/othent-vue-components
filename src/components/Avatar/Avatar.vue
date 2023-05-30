@@ -5,8 +5,8 @@
     class="othent-avatar"
     :style="{ width: size, height: size }"
     :alt="`${username}'s` + 'avatar'"
-    @error="handleError"
     referrerpolicy="no-referrer"
+    @error="handleError"
   />
 
   <div v-else class="othent-avatar" :style="{ width: size, height: size }">

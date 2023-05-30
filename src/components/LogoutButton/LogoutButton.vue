@@ -2,7 +2,6 @@
   <button
     class="othent-button-logout"
     :disabled="clicked"
-    @click.prevent="handleLogout"
     v-bind="$attrs"
     :style="{
       width: buttonWidth,
@@ -12,6 +11,7 @@
       border: `1px solid ${color}`,
       backgroundColor: isHovered ? hoverColor : backgroundColor
     }"
+    @click.prevent="handleLogout"
     @mouseover="isHovered = true"
     @mouseout="isHovered = false"
   >
@@ -26,8 +26,6 @@
 import './LogoutButton.css';
 import { ref, toRefs } from 'vue';
 import { eventBus } from '@/lib/utils';
-// @ts-ignore
-import type { LogOutReturnProps } from 'othent';
 import {
   LOGOUT_BUTTON_BACKGROUND_COLOR,
   LOGOUT_BUTTON_COLOR,

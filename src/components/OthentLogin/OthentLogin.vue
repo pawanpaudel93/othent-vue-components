@@ -3,18 +3,18 @@
     <template v-if="userData === null">
       <LoginButton
         :apiid="apiid"
-        :buttonHeight="loginButtonHeight"
-        :buttonWidth="loginButtonWidth"
-        :fontSize="loginButtonfontSize"
-        :backgroundColor="loginButtonBackgroundColor"
+        :button-height="loginButtonHeight"
+        :button-width="loginButtonWidth"
+        :font-size="loginButtonfontSize"
+        :background-color="loginButtonBackgroundColor"
         :color="loginButtonColor"
       >
-        <template v-slot:logo>
+        <template #logo>
           <slot name="login-button-logo">
             <Logo :height="loginButtonLogoHeight" :width="loginButtonLogoWidth" />
           </slot>
         </template>
-        <template v-slot:default>
+        <template #default>
           <slot name="login-button-body">
             <LoginButtonText />
           </slot>
@@ -22,21 +22,21 @@
       </LoginButton>
     </template>
     <template v-else>
-      <Modal :location="location" :avatarSize="avatarSize">
-        <template v-slot:avatar>
+      <Modal :location="location" :avatar-size="avatarSize">
+        <template #avatar>
           <slot>
             <Avatar :username="userData.name" :src="userData.picture" :size="avatarSize" />
           </slot>
         </template>
         <div class="othent-login othent-login-modal-children">
-          <UserInfo :userdata="userData" :avatarSize="userInfoAvatarSize" />
+          <UserInfo :userdata="userData" :avatar-size="userInfoAvatarSize" />
           <div class="text-center">
             <LogoutButton
               :apiid="apiid"
-              :buttonHeight="logoutButtonHeight"
-              :buttonWidth="logoutButtonWidth"
-              :fontSize="logoutButtonfontSize"
-              :backgroundColor="logoutButtonBackgroundColor"
+              :button-height="logoutButtonHeight"
+              :button-width="logoutButtonWidth"
+              :font-size="logoutButtonfontSize"
+              :background-color="logoutButtonBackgroundColor"
               :color="logoutButtonColor"
             >
               <slot name="logout-button-body">Logout</slot>

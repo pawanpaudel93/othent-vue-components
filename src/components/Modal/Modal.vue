@@ -1,9 +1,9 @@
 <template>
   <div
     class="othent-login-button othent-modal"
-    @click="() => setShowModal(!showModal)"
     :style="{ width: avatarSize, height: avatarSize }"
-    v-bind:this="modalRef"
+    :this="modalRef"
+    @click="() => setShowModal(!showModal)"
   >
     <slot name="avatar">Show Modal</slot>
     <template v-if="showModal">
