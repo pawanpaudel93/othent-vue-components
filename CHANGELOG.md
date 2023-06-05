@@ -1,5 +1,7 @@
 
 
+### [0.0.9](https://github.com/pawanpaudel93/othent-vue-components/compare/0.0.8...0.0.9) (2023-06-05)
+
 ### [0.0.8](https://github.com/pawanpaudel93/othent-vue-components/compare/0.0.7...0.0.8) (2023-05-30)
 
 
