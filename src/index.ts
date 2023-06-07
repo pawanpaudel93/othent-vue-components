@@ -5,4 +5,4 @@ export { default as Avatar } from './components/Avatar';
 export { default as UserInfo } from './components/UserInfo';
 export { default as Modal } from './components/Modal';
 export { ModalLocation } from './lib/types';
-export { getOthent, othentLogin, othentLogout } from './lib/utils';
+export { getOthent, getUserData, othentLogin, othentLogout } from './lib/utils';

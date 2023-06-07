@@ -30,3 +30,7 @@ export function useStore() {
 export function setUserData(userData: LogInReturnProps | null) {
   state.userData = userData;
 }
+
+export function getUserData() {
+  return state.userData ? { ...state.userData } : null;
+}

@@ -22,7 +22,7 @@
       </template>
     </LoginButton>
 
-    <Modal v-show="userData" :location="location" :avatar-size="avatarSize">
+    <Modal v-else :location="location" :avatar-size="avatarSize">
       <template #avatar>
         <slot>
           <Avatar :username="userData?.name" :src="userData?.picture" :size="avatarSize" />

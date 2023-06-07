@@ -483,7 +483,23 @@ Returns
 Example
 
 ```ts
+import { getOthent } from "othent-vue-components"
 const othent = await getOthent('your-api-id');
+```
+
+### getUserData
+
+This function returns the user data.
+
+Returns
+
+- `LogInReturnProps | null`: User data if user logged in else null.
+
+Example
+
+```ts
+import { getUserData } from "othent-vue-components"
+const logoutResponse = getUserData();
 ```
 
 ### othentLogin
@@ -501,6 +517,7 @@ Returns
 Example
 
 ```ts
+import { othentLogin } from "othent-vue-components"
 const loginResponse = await othentLogin('your-api-id');
 ```
 
@@ -519,6 +536,7 @@ Returns
 Example
 
 ```ts
+import { othentLogout } from "othent-vue-components"
 const logoutResponse = await othentLogout('your-api-id');
 ```
 

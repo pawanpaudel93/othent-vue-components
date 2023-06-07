@@ -8,6 +8,8 @@ import { setUserData } from '@/lib/store';
 
 let othent: useOthentReturnProps | undefined;
 
+export { getUserData } from './store';
+
 export async function getOthent(apiid: string) {
   if (othent) return othent;
   othent = await Othent({ API_ID: apiid });
