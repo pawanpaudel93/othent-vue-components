@@ -28,7 +28,6 @@
 import { ref, toRefs } from 'vue';
 import './LoginButton.css';
 import Logo from '../Logo';
-import { eventBus } from '@/lib/utils';
 import LoginButtonText from '../Extras/LoginButtonText.vue';
 import {
   LOGIN_BUTTON_BACKGROUND_COLOR,
@@ -39,7 +38,9 @@ import {
   LOGO_HEIGHT,
   LOGO_WIDTH
 } from '@/lib/constants';
-import { othentLogin } from '@/lib/utils';
+import { getOthent } from '@/lib/utils';
+import { setUserData } from '@/lib/store';
+import { LogInReturnProps } from 'othent';
 
 interface Props {
   apiid: string;
@@ -74,11 +75,17 @@ const {
 } = toRefs(props);
 const clicked = ref(false);
 
+const emitEvent = defineEmits<{
+  (e: 'loggedIn', loginResponse: LogInReturnProps): void;
+}>();
+
 async function handleLogin() {
   clicked.value = true;
   try {
-    const loginResponse = await othentLogin(apiid.value);
-    eventBus.emit('loggedIn', loginResponse);
+    const othent = await getOthent(apiid.value);
+    const loginResponse = await othent.logIn();
+    emitEvent('loggedIn', loginResponse);
+    setUserData(loginResponse);
   } catch (e) {
     console.log('othent.login() failed:');
     console.log(e);

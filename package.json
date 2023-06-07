@@ -42,7 +42,6 @@
   },
   "dependencies": {
     "buffer": "^6.0.3",
-    "mitt": "^3.0.0",
     "othent": "^1.0.619"
   },
   "devDependencies": {

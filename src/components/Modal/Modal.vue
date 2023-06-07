@@ -3,6 +3,7 @@
     class="othent-login-button othent-modal"
     :style="{ width: avatarSize, height: avatarSize }"
     :this="modalRef"
+    v-bind="$attrs"
     @click="() => setShowModal(!showModal)"
   >
     <slot name="avatar">Show Modal</slot>

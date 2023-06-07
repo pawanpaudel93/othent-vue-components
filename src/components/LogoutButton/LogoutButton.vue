@@ -25,7 +25,6 @@
 <script setup lang="ts">
 import './LogoutButton.css';
 import { ref, toRefs } from 'vue';
-import { eventBus } from '@/lib/utils';
 import {
   LOGOUT_BUTTON_BACKGROUND_COLOR,
   LOGOUT_BUTTON_COLOR,
@@ -33,7 +32,9 @@ import {
   LOGOUT_BUTTON_HEIGHT,
   LOGOUT_BUTTON_WIDTH
 } from '@/lib/constants';
-import { othentLogout } from '@/lib/utils';
+import { getOthent } from '@/lib/utils';
+import { setUserData } from '@/lib/store';
+import { LogOutReturnProps } from 'othent';
 
 interface Props {
   apiid: string;
@@ -58,11 +59,19 @@ const hoverColor = ref(`${color.value}11`);
 const isHovered = ref(false);
 const clicked = ref(false);
 
+const emitEvent = defineEmits<{
+  (e: 'loggedOut', logoutResponse: LogOutReturnProps): void;
+}>();
+
 async function handleLogout() {
   clicked.value = true;
   try {
-    const logoutResponse = await othentLogout(apiid.value);
-    logoutResponse.response && eventBus.emit('loggedOut', logoutResponse);
+    const othent = await getOthent(apiid.value);
+    const logoutResponse = await othent.logOut();
+    if (logoutResponse.response) {
+      emitEvent('loggedOut', logoutResponse);
+      setUserData(null);
+    }
   } catch (e) {
     console.log('othent.logout() failed:');
     console.log(e);

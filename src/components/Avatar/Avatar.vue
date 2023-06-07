@@ -6,6 +6,7 @@
     :style="{ width: size, height: size }"
     :alt="`${username}'s` + 'avatar'"
     referrerpolicy="no-referrer"
+    v-bind="$attrs"
     @error="handleError"
   />
 

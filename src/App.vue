@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { LogInReturnProps, LogOutReturnProps } from 'othent';
-import { OthentLogin, eventBus } from '.';
-import { onBeforeUnmount, onMounted } from 'vue';
+import { OthentLogin } from '.';
 const API_ID = import.meta.env.VITE_OTHENT_API_ID;
 
 const width = 24;
@@ -14,16 +13,6 @@ const handleLogin = (loginResponse: LogInReturnProps) => {
 const handleLogout = (logoutResponse: LogOutReturnProps) => {
   console.log(logoutResponse);
 };
-
-onMounted(() => {
-  eventBus.on('loggedIn', handleLogin);
-  eventBus.on('loggedOut', handleLogout);
-});
-
-onBeforeUnmount(() => {
-  eventBus.off('loggedIn', handleLogin);
-  eventBus.off('loggedOut', handleLogout);
-});
 </script>
 
 <template>
@@ -55,6 +44,8 @@ onBeforeUnmount(() => {
       :login-button-logo-width="36"
       avatar-size="2.5em"
       logout-button-color="#00a3c4"
+      @logged-in="handleLogin"
+      @logged-out="handleLogout"
     >
       <template #login-button-logo>
         <svg

@@ -81,11 +81,11 @@ The Othent Login Component emits the following events:
 - `loggedIn`: Dispatched when the user successfully logs in. The event detail contains the login response data.
 - `loggedOut`: Dispatched when the user logs out. The event detail contains the logout response data.
 
-To handle these events, you can use eventBus as below:
+To handle these events, you can use as below:
 
 ```vue
 <script setup lang="ts">
-import { OthentLogin, eventBus } from 'othent-vue-components';
+import { OthentLogin } from 'othent-vue-components';
 import { LogInReturnProps, LogOutReturnProps } from 'othent';
 import { onBeforeUnmount, onMounted } from 'vue';
 
@@ -98,20 +98,10 @@ const handleLogout = (logoutResponse: LogOutReturnProps) => {
   console.log(logoutResponse);
   // Handle loggedOut event
 };
-
-onMounted(() => {
-  eventBus.on('loggedIn', handleLogin);
-  eventBus.on('loggedOut', handleLogout);
-});
-
-onBeforeUnmount(() => {
-  eventBus.off('loggedIn', handleLogin);
-  eventBus.off('loggedOut', handleLogout);
-});
 </script>
 
 <template>
-  <OthentLogin apiid="YOUR_API_ID" />
+  <OthentLogin apiid="YOUR_API_ID" @logged-in="handleLogin" @logged-out="handleLogout" />
 </template>
 ```
 
@@ -119,7 +109,7 @@ onBeforeUnmount(() => {
 
 ```vue
 <script setup lang="ts">
-import { OthentLogin, eventBus } from 'othent-vue-components';
+import { OthentLogin } from 'othent-vue-components';
 import type { LogInReturnProps, LogOutReturnProps } from 'othent';
 import { onBeforeUnmount, onMounted } from 'vue';
 const API_ID = 'YOUR_API_ID';
@@ -136,16 +126,6 @@ const handleLogout = (logoutResponse: LogOutReturnProps) => {
   console.log(logoutResponse);
   // Handle loggedOut event
 };
-
-onMounted(() => {
-  eventBus.on('loggedIn', handleLogin);
-  eventBus.on('loggedOut', handleLogout);
-});
-
-onBeforeUnmount(() => {
-  eventBus.off('loggedIn', handleLogin);
-  eventBus.off('loggedOut', handleLogout);
-});
 </script>
 
 <template>
@@ -157,6 +137,8 @@ onBeforeUnmount(() => {
       :login-button-logo-height="16"
       :login-button-logo-width="36"
       avatar-size="2.5em"
+      @logged-in="handleLogin"
+      @logged-out="handleLogout"
     >
       <template v-slot:login-button-logo>
         <svg
@@ -225,7 +207,7 @@ Import the component in your script and use it:
 
 ```vue
 <script setup lang="ts">
-import { LoginButton, eventBus } from 'othent-vue-components';
+import { LoginButton } from 'othent-vue-components';
 </script>
 
 <template>
@@ -266,7 +248,7 @@ The LoginButton component emits the following event:
 
 ```vue
 <script setup lang="ts">
-import { LoginButton, eventBus } from 'othent-vue-components';
+import { LoginButton } from 'othent-vue-components';
 import type { LogInReturnProps } from 'othent';
 import { onBeforeUnmount, onMounted } from 'vue';
 
@@ -274,18 +256,10 @@ const handleLogin = (loginResponse: LogInReturnProps) => {
   console.log(loginResponse);
   // Handle loggedIn event
 };
-
-onMounted(() => {
-  eventBus.on('loggedIn', handleLogin);
-});
-
-onBeforeUnmount(() => {
-  eventBus.off('loggedIn', handleLogin);
-});
 </script>
 
 <template>
-  <LoginButton apiid="YOUR_API_ID">
+  <LoginButton apiid="YOUR_API_ID" @logged-in="handleLogin">
     <span>Login with Othent</span>
   </LoginButton>
 </template>
@@ -337,7 +311,7 @@ The LogoutButton component emits the following event:
 
 ```vue
 <script setup lang="ts">
-import { LogoutButton, eventBus } from 'othent-vue-components';
+import { LogoutButton } from 'othent-vue-components';
 import type { LogOutReturnProps } from 'othent';
 import { onBeforeUnmount, onMounted } from 'vue';
 
@@ -345,18 +319,10 @@ const handleLogout = (logoutResponse: LogOutReturnProps) => {
   console.log(logoutResponse);
   // Handle loggedOut event
 };
-
-onMounted(() => {
-  eventBus.on('loggedOut', handleLogout);
-});
-
-onBeforeUnmount(() => {
-  eventBus.off('loggedOut', handleLogout);
-});
 </script>
 
 <template>
-  <LogoutButton apiid="YOUR_API_ID" button-height="48px" button-width="180px" font-size="18px">
+  <LogoutButton apiid="YOUR_API_ID" button-height="48px" button-width="180px" font-size="18px" @logged-out="handleLogout">
     <span>Sign Out</span>
   </LogoutButton>
 </template>

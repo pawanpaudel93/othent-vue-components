@@ -1,56 +1,55 @@
 <template>
   <div class="othent-login">
-    <template v-if="userData === null">
-      <LoginButton
-        :apiid="apiid"
-        :button-height="loginButtonHeight"
-        :button-width="loginButtonWidth"
-        :font-size="loginButtonFontSize"
-        :background-color="loginButtonBackgroundColor"
-        :color="loginButtonColor"
-      >
-        <template #logo>
-          <slot name="login-button-logo">
-            <Logo :height="loginButtonLogoHeight" :width="loginButtonLogoWidth" />
-          </slot>
-        </template>
-        <template #default>
-          <slot name="login-button-body">
-            <LoginButtonText />
-          </slot>
-        </template>
-      </LoginButton>
-    </template>
-    <template v-else>
-      <Modal :location="location" :avatar-size="avatarSize">
-        <template #avatar>
-          <slot>
-            <Avatar :username="userData.name" :src="userData.picture" :size="avatarSize" />
-          </slot>
-        </template>
-        <div class="othent-login othent-login-modal-children">
-          <UserInfo :userdata="userData" :avatar-size="userInfoAvatarSize" />
-          <div class="text-center">
-            <LogoutButton
-              :apiid="apiid"
-              :button-height="logoutButtonHeight"
-              :button-width="logoutButtonWidth"
-              :font-size="logoutButtonFontSize"
-              :background-color="logoutButtonBackgroundColor"
-              :color="logoutButtonColor"
-            >
-              <slot name="logout-button-body">Logout</slot>
-            </LogoutButton>
-          </div>
+    <LoginButton
+      v-if="userData === null"
+      :apiid="apiid"
+      :button-height="loginButtonHeight"
+      :button-width="loginButtonWidth"
+      :font-size="loginButtonFontSize"
+      :background-color="loginButtonBackgroundColor"
+      :color="loginButtonColor"
+      @logged-in="onLoggedIn"
+    >
+      <template #logo>
+        <slot name="login-button-logo">
+          <Logo :height="loginButtonLogoHeight" :width="loginButtonLogoWidth" />
+        </slot>
+      </template>
+      <template #default>
+        <slot name="login-button-body">
+          <LoginButtonText />
+        </slot>
+      </template>
+    </LoginButton>
+
+    <Modal v-show="userData" :location="location" :avatar-size="avatarSize">
+      <template #avatar>
+        <slot>
+          <Avatar :username="userData?.name" :src="userData?.picture" :size="avatarSize" />
+        </slot>
+      </template>
+      <div class="othent-login othent-login-modal-children">
+        <UserInfo :userdata="userData" :avatar-size="userInfoAvatarSize" />
+        <div class="text-center">
+          <LogoutButton
+            :apiid="apiid"
+            :button-height="logoutButtonHeight"
+            :button-width="logoutButtonWidth"
+            :font-size="logoutButtonFontSize"
+            :background-color="logoutButtonBackgroundColor"
+            :color="logoutButtonColor"
+          >
+            <slot name="logout-button-body">Logout</slot>
+          </LogoutButton>
         </div>
-      </Modal>
-    </template>
+      </div>
+    </Modal>
   </div>
 </template>
 
 <script setup lang="ts">
 import './OthentLogin.css';
-import { toRefs, toRef } from 'vue';
+import { toRefs, toRef, watch } from 'vue';
 import LoginButtonText from '../Extras/LoginButtonText.vue';
 import { ModalLocation } from '@/lib/types';
 import { useStore } from '@/lib/store';
@@ -76,6 +75,7 @@ import {
   LOGOUT_BUTTON_COLOR,
   LOGIN_BUTTON_COLOR
 } from '@/lib/constants';
+import { LogInReturnProps, LogOutReturnProps } from 'othent';
 
 interface Props {
   location?: ModalLocation;
@@ -134,4 +134,21 @@ const {
 } = toRefs(props);
 
 const userData = toRef(useStore(), 'userData');
+
+watch(userData, () => {
+  if (userData.value === null) onLoggedOut({ response: 'User logged out' });
+});
+
+const emitEvent = defineEmits<{
+  (e: 'loggedIn', loginResponse: LogInReturnProps): void;
+  (e: 'loggedOut', logoutResponse: LogOutReturnProps): void;
+}>();
+
+function onLoggedIn(loginResponse: LogInReturnProps) {
+  emitEvent('loggedIn', loginResponse);
+}
+
+function onLoggedOut(logoutResponse: LogOutReturnProps) {
+  emitEvent('loggedOut', logoutResponse);
+}
 </script>
