@@ -1,26 +1,21 @@
-
-
 ## [0.1.0](https://github.com/pawanpaudel93/othent-vue-components/compare/0.0.9...0.1.0) (2023-06-07)
-
 
 ### Features
 
-* export getUserData function ([9c608c8](https://github.com/pawanpaudel93/othent-vue-components/commit/9c608c8c8f418592c46bc4bdfcb94aa93d65831d))
-
+- export getUserData function ([9c608c8](https://github.com/pawanpaudel93/othent-vue-components/commit/9c608c8c8f418592c46bc4bdfcb94aa93d65831d))
 
 ### Bug Fixes
 
-* remove eventBus and make loggedIn & loggedOut emit ([2714be4](https://github.com/pawanpaudel93/othent-vue-components/commit/2714be4a1299455138fc274ba30e00f2dad97802))
+- remove eventBus and make loggedIn & loggedOut emit ([2714be4](https://github.com/pawanpaudel93/othent-vue-components/commit/2714be4a1299455138fc274ba30e00f2dad97802))
 
 ### [0.0.9](https://github.com/pawanpaudel93/othent-vue-components/compare/0.0.8...0.0.9) (2023-06-05)
 
 ### [0.0.8](https://github.com/pawanpaudel93/othent-vue-components/compare/0.0.7...0.0.8) (2023-05-30)
 
-
 ### Bug Fixes
 
-* rename props name ([cd88e68](https://github.com/pawanpaudel93/othent-vue-components/commit/cd88e68c3e7b72ac8733bdb7629b2f4df9964099))
-* run eslint ([cc77919](https://github.com/pawanpaudel93/othent-vue-components/commit/cc7791991b335d52224220c40f93f12f1c72bd04))
+- rename props name ([cd88e68](https://github.com/pawanpaudel93/othent-vue-components/commit/cd88e68c3e7b72ac8733bdb7629b2f4df9964099))
+- run eslint ([cc77919](https://github.com/pawanpaudel93/othent-vue-components/commit/cc7791991b335d52224220c40f93f12f1c72bd04))
 
 ### [0.0.7](https://github.com/pawanpaudel93/othent-vue-components/compare/0.0.6...0.0.7) (2023-05-30)
 

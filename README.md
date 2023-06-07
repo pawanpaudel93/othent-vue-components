@@ -322,7 +322,13 @@ const handleLogout = (logoutResponse: LogOutReturnProps) => {
 </script>
 
 <template>
-  <LogoutButton apiid="YOUR_API_ID" button-height="48px" button-width="180px" font-size="18px" @logged-out="handleLogout">
+  <LogoutButton
+    apiid="YOUR_API_ID"
+    button-height="48px"
+    button-width="180px"
+    font-size="18px"
+    @logged-out="handleLogout"
+  >
     <span>Sign Out</span>
   </LogoutButton>
 </template>
@@ -483,7 +489,7 @@ Returns
 Example
 
 ```ts
-import { getOthent } from "othent-vue-components"
+import { getOthent } from 'othent-vue-components';
 const othent = await getOthent('your-api-id');
 ```
 
@@ -498,7 +504,7 @@ Returns
 Example
 
 ```ts
-import { getUserData } from "othent-vue-components"
+import { getUserData } from 'othent-vue-components';
 const logoutResponse = getUserData();
 ```
 
@@ -517,7 +523,7 @@ Returns
 Example
 
 ```ts
-import { othentLogin } from "othent-vue-components"
+import { othentLogin } from 'othent-vue-components';
 const loginResponse = await othentLogin('your-api-id');
 ```
 
@@ -536,7 +542,7 @@ Returns
 Example
 
 ```ts
-import { othentLogout } from "othent-vue-components"
+import { othentLogout } from 'othent-vue-components';
 const logoutResponse = await othentLogout('your-api-id');
 ```
 
