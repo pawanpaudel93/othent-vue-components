@@ -7,11 +7,13 @@ const userDataKey = 'othent:userData';
 // Define the initial state of the store
 interface State {
   userData: LogInReturnProps | null;
+  isLoading: boolean;
 }
 
 // Create a reactive state object
 const state: State = reactive({
-  userData: JSON.parse(localStorage.getItem(userDataKey) || 'null')
+  userData: JSON.parse(localStorage.getItem(userDataKey) || 'null'),
+  isLoading: false
 });
 
 // Watch for changes to the value and update LocalStorage
@@ -29,6 +31,10 @@ export function useStore() {
 
 export function setUserData(userData: LogInReturnProps | null) {
   state.userData = userData;
+}
+
+export function setIsLoading(isLoading: boolean) {
+  state.isLoading = isLoading;
 }
 
 export function getUserData() {

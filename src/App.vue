@@ -1,10 +1,17 @@
 <script setup lang="ts">
 import { LogInReturnProps, LogOutReturnProps } from 'othent';
 import { OthentLogin } from '.';
+import { ref } from 'vue';
 const API_ID = import.meta.env.VITE_OTHENT_API_ID;
 
 const width = 24;
 const height = 24;
+
+const darkMode = ref(false);
+
+const toggle = () => {
+  darkMode.value = !darkMode.value;
+};
 
 const handleLogin = (loginResponse: LogInReturnProps) => {
   console.log(loginResponse);
@@ -35,7 +42,11 @@ const handleLogout = (logoutResponse: LogOutReturnProps) => {
       </svg>
     </a>
   </div>
-  <div class="container">
+  <div
+    class="container"
+    style="display: flex; gap: 10px; flex-direction: column; align-items: center"
+  >
+    <button :onclick="toggle">Dark Mode {{ darkMode ? 'ON' : 'OFF' }}</button>
     <OthentLogin
       :apiid="API_ID"
       login-button-height="25px"
@@ -44,6 +55,7 @@ const handleLogout = (logoutResponse: LogOutReturnProps) => {
       :login-button-logo-width="36"
       avatar-size="2.5em"
       logout-button-color="#00a3c4"
+      :dark-mode="darkMode"
       @logged-in="handleLogin"
       @logged-out="handleLogout"
     >

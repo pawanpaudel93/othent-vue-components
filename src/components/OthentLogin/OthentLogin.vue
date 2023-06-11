@@ -6,8 +6,8 @@
       :button-height="loginButtonHeight"
       :button-width="loginButtonWidth"
       :font-size="loginButtonFontSize"
-      :background-color="loginButtonBackgroundColor"
-      :color="loginButtonColor"
+      :background-color="darkMode ? darkModeBackgroundColor : loginButtonBackgroundColor"
+      :color="darkMode ? darkModeColor : loginButtonColor"
       @logged-in="onLoggedIn"
     >
       <template #logo>
@@ -22,7 +22,12 @@
       </template>
     </LoginButton>
 
-    <Modal v-else :location="location" :avatar-size="avatarSize">
+    <Modal
+      v-else
+      :location="location"
+      :avatar-size="avatarSize"
+      :style="darkMode ? `color: ${darkModeColor}; background: ${darkModeBackgroundColor}` : ''"
+    >
       <template #avatar>
         <slot>
           <Avatar :username="userData?.name" :src="userData?.picture" :size="avatarSize" />
@@ -36,8 +41,8 @@
             :button-height="logoutButtonHeight"
             :button-width="logoutButtonWidth"
             :font-size="logoutButtonFontSize"
-            :background-color="logoutButtonBackgroundColor"
-            :color="logoutButtonColor"
+            :background-color="darkMode ? darkModeBackgroundColor : logoutButtonBackgroundColor"
+            :color="darkMode ? darkModeColor : logoutButtonColor"
           >
             <slot name="logout-button-body">Logout</slot>
           </LogoutButton>
@@ -73,7 +78,9 @@ import {
   LOGOUT_BUTTON_BACKGROUND_COLOR,
   LOGIN_BUTTON_BACKGROUND_COLOR,
   LOGOUT_BUTTON_COLOR,
-  LOGIN_BUTTON_COLOR
+  LOGIN_BUTTON_COLOR,
+  DARK_COLOR,
+  DARK_BACKGROUND_COLOR
 } from '@/lib/constants';
 import { LogInReturnProps, LogOutReturnProps } from 'othent';
 
@@ -94,6 +101,9 @@ interface Props {
   logoutButtonFontSize?: string;
   logoutButtonBackgroundColor?: string;
   logoutButtonColor?: string;
+  darkModeColor?: string;
+  darkModeBackgroundColor?: string;
+  darkMode?: boolean;
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -111,7 +121,10 @@ const props = withDefaults(defineProps<Props>(), {
   logoutButtonWidth: LOGOUT_BUTTON_WIDTH,
   logoutButtonFontSize: LOGOUT_BUTTON_FONT_SIZE,
   logoutButtonBackgroundColor: LOGOUT_BUTTON_BACKGROUND_COLOR,
-  logoutButtonColor: LOGOUT_BUTTON_COLOR
+  logoutButtonColor: LOGOUT_BUTTON_COLOR,
+  darkModeColor: DARK_COLOR,
+  darkModeBackgroundColor: DARK_BACKGROUND_COLOR,
+  darkMode: false
 });
 
 const {
@@ -130,7 +143,10 @@ const {
   logoutButtonColor,
   logoutButtonHeight,
   logoutButtonWidth,
-  logoutButtonFontSize
+  logoutButtonFontSize,
+  darkModeBackgroundColor,
+  darkModeColor,
+  darkMode
 } = toRefs(props);
 
 const userData = toRef(useStore(), 'userData');

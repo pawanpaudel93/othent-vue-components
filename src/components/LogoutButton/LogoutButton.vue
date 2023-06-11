@@ -1,7 +1,7 @@
 <template>
   <button
     class="othent-button-logout"
-    :disabled="clicked"
+    :disabled="isLoading"
     v-bind="$attrs"
     :style="{
       width: buttonWidth,
@@ -24,7 +24,7 @@
 
 <script setup lang="ts">
 import './LogoutButton.css';
-import { ref, toRefs } from 'vue';
+import { ref, toRef, toRefs } from 'vue';
 import {
   LOGOUT_BUTTON_BACKGROUND_COLOR,
   LOGOUT_BUTTON_COLOR,
@@ -33,8 +33,9 @@ import {
   LOGOUT_BUTTON_WIDTH
 } from '@/lib/constants';
 import { getOthent } from '@/lib/utils';
-import { setUserData } from '@/lib/store';
+import { setUserData, useStore } from '@/lib/store';
 import { LogOutReturnProps } from 'othent';
+import { getIsLoading, setIsLoading } from '@/lib/store';
 
 interface Props {
   apiid: string;
@@ -57,14 +58,15 @@ const { apiid, buttonHeight, buttonWidth, fontSize, backgroundColor, color } = t
 
 const hoverColor = ref(`${color.value}11`);
 const isHovered = ref(false);
-const clicked = ref(false);
 
 const emitEvent = defineEmits<{
   (e: 'loggedOut', logoutResponse: LogOutReturnProps): void;
 }>();
 
+const isLoading = toRef(useStore(), 'isLoading');
+
 async function handleLogout() {
-  clicked.value = true;
+  setIsLoading(true);
   try {
     const othent = await getOthent(apiid.value);
     const logoutResponse = await othent.logOut();
@@ -76,7 +78,7 @@ async function handleLogout() {
     console.log('othent.logout() failed:');
     console.log(e);
   } finally {
-    clicked.value = false;
+    setIsLoading(false);
   }
 }
 </script>

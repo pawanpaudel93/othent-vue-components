@@ -1,7 +1,7 @@
 <template>
   <button
     class="othent-button-login"
-    :disabled="clicked"
+    :disabled="isLoading"
     v-bind="$attrs"
     :style="{
       width: buttonWidth,
@@ -12,7 +12,8 @@
     }"
     @click.prevent="handleLogin"
   >
-    <slot name="logo">
+    <Spinner v-if="isLoading" :size="`calc(${buttonHeight} - 10px)`" style="margin-right: 0.5em" />
+    <slot v-else name="logo">
       <Logo :height="logoHeight" :width="logoWidth" />
     </slot>
     <template v-if="$slots.default">
@@ -25,7 +26,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, toRefs } from 'vue';
+import { toRef, toRefs } from 'vue';
 import './LoginButton.css';
 import Logo from '../Logo';
 import LoginButtonText from '../Extras/LoginButtonText.vue';
@@ -39,8 +40,10 @@ import {
   LOGO_WIDTH
 } from '@/lib/constants';
 import { getOthent } from '@/lib/utils';
-import { setUserData } from '@/lib/store';
+import { setUserData, useStore } from '@/lib/store';
 import { LogInReturnProps } from 'othent';
+import { setIsLoading, getIsLoading } from '@/lib/store';
+import Spinner from '../Extras/Spinner.vue';
 
 interface Props {
   apiid: string;
@@ -73,14 +76,15 @@ const {
   backgroundColor,
   color
 } = toRefs(props);
-const clicked = ref(false);
+
+const isLoading = toRef(useStore(), 'isLoading');
 
 const emitEvent = defineEmits<{
   (e: 'loggedIn', loginResponse: LogInReturnProps): void;
 }>();
 
 async function handleLogin() {
-  clicked.value = true;
+  setIsLoading(true);
   try {
     const othent = await getOthent(apiid.value);
     const loginResponse = await othent.logIn();
@@ -90,7 +94,7 @@ async function handleLogin() {
     console.log('othent.login() failed:');
     console.log(e);
   } finally {
-    clicked.value = false;
+    setIsLoading(false);
   }
 }
 </script>

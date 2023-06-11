@@ -6,7 +6,15 @@
     v-bind="$attrs"
     @click="() => setShowModal(!showModal)"
   >
-    <slot name="avatar">Show Modal</slot>
+    <div class="avatar-wrapper">
+      <div v-if="isLoading" class="overlay">
+        <div class="avatar-loading-border">
+          <div class="loading-border" />
+        </div>
+      </div>
+
+      <slot name="avatar">Show Modal</slot>
+    </div>
     <template v-if="showModal">
       <div class="othent-modal-children" :class="`othent-modal-children-${LOCATIONS[location]}`">
         <slot>Modal Content</slot>
@@ -17,9 +25,10 @@
 
 <script setup lang="ts">
 import './Modal.css';
-import { onMounted, ref, toRefs } from 'vue';
+import { onMounted, ref, toRef, toRefs } from 'vue';
 import { ModalLocation } from '@/lib/types';
 import { AVATAR_SIZE } from '@/lib/constants';
+import { getIsLoading, useStore } from '@/lib/store';
 
 const LOCATIONS = [
   'top',
@@ -46,6 +55,7 @@ const { location, avatarSize } = toRefs(props);
 
 const showModal = ref<boolean>(false);
 const modalRef = ref<HTMLDivElement | null>(null);
+const isLoading = toRef(useStore(), 'isLoading');
 
 onMounted(() => {
   const handleClickOutside = (event: MouseEvent) => {
