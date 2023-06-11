@@ -1,3 +1,12 @@
+
+
+## [0.2.0](https://github.com/pawanpaudel93/othent-vue-components/compare/0.1.0...0.2.0) (2023-06-11)
+
+
+### Features
+
+* Add dark mode ([4c6bf69](https://github.com/pawanpaudel93/othent-vue-components/commit/4c6bf69e4613bf69a9c4281d2c8fddb7a198fd2c))
+
 ## [0.1.0](https://github.com/pawanpaudel93/othent-vue-components/compare/0.0.9...0.1.0) (2023-06-07)
 
 ### Features
