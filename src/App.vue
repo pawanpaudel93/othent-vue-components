@@ -42,15 +42,12 @@ const handleLogout = (logoutResponse: LogOutReturnProps) => {
       </svg>
     </a>
   </div>
-  <div
-    class="container"
-    style="display: flex; gap: 10px; flex-direction: column; align-items: center"
-  >
+  <div class="container">
     <button :onclick="toggle">Dark Mode {{ darkMode ? 'ON' : 'OFF' }}</button>
     <OthentLogin
       :apiid="API_ID"
       login-button-height="25px"
-      login-buttonfont-size="14px"
+      login-button-font-size="14px"
       :login-button-logo-height="16"
       :login-button-logo-width="36"
       avatar-size="2.5em"
@@ -188,5 +185,9 @@ button:focus-visible {
   width: 100%;
   display: flex;
   justify-content: center;
+  align-items: center;
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
 }
 </style>

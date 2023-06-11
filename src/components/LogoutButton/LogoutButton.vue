@@ -35,7 +35,7 @@ import {
 import { getOthent } from '@/lib/utils';
 import { setUserData, useStore } from '@/lib/store';
 import { LogOutReturnProps } from 'othent';
-import { getIsLoading, setIsLoading } from '@/lib/store';
+import { setIsLoading } from '@/lib/store';
 
 interface Props {
   apiid: string;
@@ -75,8 +75,7 @@ async function handleLogout() {
       setUserData(null);
     }
   } catch (e) {
-    console.log('othent.logout() failed:');
-    console.log(e);
+    console.log('othent.logout() failed:', e);
   } finally {
     setIsLoading(false);
   }

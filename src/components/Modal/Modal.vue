@@ -28,7 +28,7 @@ import './Modal.css';
 import { onMounted, ref, toRef, toRefs } from 'vue';
 import { ModalLocation } from '@/lib/types';
 import { AVATAR_SIZE } from '@/lib/constants';
-import { getIsLoading, useStore } from '@/lib/store';
+import { useStore } from '@/lib/store';
 
 const LOCATIONS = [
   'top',

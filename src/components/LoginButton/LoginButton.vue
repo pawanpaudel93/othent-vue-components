@@ -12,7 +12,7 @@
     }"
     @click.prevent="handleLogin"
   >
-    <Spinner v-if="isLoading" :size="`calc(${buttonHeight} - 10px)`" style="margin-right: 0.5em" />
+    <Spinner v-if="isLoading" :size="`calc(${buttonHeight} - 10px)`" style="margin-right: 0.3em" />
     <slot v-else name="logo">
       <Logo :height="logoHeight" :width="logoWidth" />
     </slot>
@@ -42,7 +42,7 @@ import {
 import { getOthent } from '@/lib/utils';
 import { setUserData, useStore } from '@/lib/store';
 import { LogInReturnProps } from 'othent';
-import { setIsLoading, getIsLoading } from '@/lib/store';
+import { setIsLoading } from '@/lib/store';
 import Spinner from '../Extras/Spinner.vue';
 
 interface Props {
@@ -91,8 +91,7 @@ async function handleLogin() {
     emitEvent('loggedIn', loginResponse);
     setUserData(loginResponse);
   } catch (e) {
-    console.log('othent.login() failed:');
-    console.log(e);
+    console.log('othent.login() failed:', e);
   } finally {
     setIsLoading(false);
   }
