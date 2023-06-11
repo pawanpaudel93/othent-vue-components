@@ -65,6 +65,9 @@ Optional Props:
 - `logoutButtonFontSize` (default: "normal"): The font size of the logout button text.
 - `logoutButtonColor` (default: "#f44336"): The text color of the logout button.
 - `logoutButtonBackgroundColor` (default: #fff): The background color of the logout button.
+- `darkMode` (default: false): Set dark mode on or off.
+- `darkModeColor` (default: #cccccc): The text color in dark mode.
+- `darkModeBackgroundColor` (default: #333333): The background color in dark mode.
 
 ### Slots
 
