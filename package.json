@@ -42,7 +42,7 @@
   },
   "dependencies": {
     "buffer": "^6.0.3",
-    "othent": "^1.0.619"
+    "othent": "^1.0.634"
   },
   "devDependencies": {
     "@release-it/conventional-changelog": "^5.1.1",
